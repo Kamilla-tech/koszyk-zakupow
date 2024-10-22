@@ -19,8 +19,12 @@
       <div class="modal">
         <button @click="toggleCart" class="close-modal">X</button>
         <ProductList
-          
+          :products="products"
+          @update-quantity="updateProductQuantity"
+          @remove-product="removeProduct"
         /> 
+        
+        <OrderSummary :subTotal="subTotal" :tax="tax"/>
       </div>
     </div>
   </div>
@@ -111,5 +115,75 @@
 </script>
 
 <style scoped>
-
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 10px;
+  }
+  
+  .product-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .product-card button {
+    padding: 5px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #fff;
+  }
+  
+  .product-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal {
+    position: absolute;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  
+  .close-modal:hover {
+    background-color: #d32f2f;
+  }
 </style>
