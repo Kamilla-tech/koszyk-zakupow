@@ -13,9 +13,6 @@
        </li>
      </ul>
    </div>
-   <div class="checkout">
-     <button type="button">Dalej</button>
-   </div>
  </section>
 </template>
 
@@ -53,15 +50,4 @@
     font-weight: bold;
   }
   
-  .checkout {
-    text-align: right;
-    margin-top: 15px;
-  }
-  
-  .checkout > button {
-    width: 50px;
-    padding: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
 </style>
