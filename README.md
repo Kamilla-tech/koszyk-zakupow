@@ -1,4 +1,8 @@
-# koszyk-zakupow
+# Shopping basket
+
+Demo:
+
+https://koszyk-zakupow.kamila-tech.pl/
 
 ## Project setup
 ```
