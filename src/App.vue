@@ -48,7 +48,7 @@
         availableProducts: [
           {
             id: 1,
-            image: "https://via.placeholder.com/200x150",
+            image: "https://placehold.co/200x150",
             name: "Produkt #1",
             price: 19.99
           }
@@ -70,14 +70,12 @@
     },
     methods: {
       generateProducts(count) {
-        const names = ["computer", "flower", "monitor", "dvd", "game", "car", "book", "console", "keyboard", "telephone"];
-
+        
         for (let i = 0; i < count; i++) {
-          const randName = names[Math.ceil(Math.random() * names.length)];
-
+          
           const newProduct = {
             id: this.availableProducts.length + 1,
-            image: "https://via.placeholder.com/200x150?" + randName,
+            image: "https://placehold.co/200x150",
             name: `Produkt #${this.availableProducts.length + 1}`,
             price: (Math.random() * 100).toFixed(2),
           };
@@ -172,13 +170,13 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background-color: #f44336;
     color: #fff;
     border: none;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     line-height: 1;
     cursor: pointer;
   }

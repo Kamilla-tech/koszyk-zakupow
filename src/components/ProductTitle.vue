@@ -16,7 +16,7 @@
     <div class="total" v-else>
       {{ formatCurrency(0 )}}
     </div>
-    <div class="remove" @click="$emit('remove-product')">X</div>
+    <div class="remove" @click="$emit('remove-product')"><font-awesome-icon :icon="['fas', 'xmark']" /></div>
   </li>
 </template>
 
