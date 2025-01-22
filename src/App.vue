@@ -16,7 +16,7 @@
     </div>
     
     <div v-if="showCart" class="modal-overlay">
-      <div class="modal">
+      <div class="modal"  @keydown.esc="toggleCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <button @click="toggleCart" class="close-modal">X</button>
         <ProductList
           :products="products"
@@ -70,7 +70,6 @@
     },
     methods: {
       generateProducts(count) {
-        
         for (let i = 0; i < count; i++) {
           
           const newProduct = {
@@ -103,12 +102,21 @@
         return Number(value).toLocaleString("pl-PL", { style: "currency", currency: "PLN"});
       },
       toggleCart() {
-        if (this.products.length > 0) this.showCart = !this.showCart;
-      }
+        this.showCart = !this.showCart;
+      },
+      handleEscapeKey(event) {
+        if (event.key === 'Escape') {
+        this.showCart = false;
+        }
+      },
     },
     mounted() {
       this.generateProducts(30);
-    }
+      document.addEventListener('keydown', this.handleEscapeKey);
+    },
+    beforeUnmount() {
+      document.removeEventListener('keydown', this.handleEscapeKey);
+    },
   }
 </script>
 
