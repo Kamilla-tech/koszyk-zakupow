@@ -4,7 +4,7 @@
       Ilość produktów w koszyku:
       {{ itemCount}}
     </span>
-    <button @click="$emit('toggle-cart')"><font-awesome-icon :icon="['fas', 'cart-shopping']" /></button>
+    <button :disabled="itemCount === 0" @click="$emit('toggle-cart')"><font-awesome-icon :icon="['fas', 'cart-shopping']" /></button>
   </header>
 </template>
 
